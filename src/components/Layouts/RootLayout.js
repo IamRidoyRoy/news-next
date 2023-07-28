@@ -32,7 +32,7 @@ const RootLayout = ({ children }) => {
                 borderRadius: "3px",
               }}
             >
-              PH_NEWS PORTAL
+              NEWS-NEXT
             </Link>
           </h1>
         </div>
@@ -82,7 +82,7 @@ const RootLayout = ({ children }) => {
             fontSize: "28px",
           }}
         >
-          PH-NEWS PORTAL
+          NEWS-NEXT
         </h2>
         <p className={styles.social_icons}>
           <Link href="https://web.facebook.com/groups/programmingherocommunity">
@@ -98,7 +98,7 @@ const RootLayout = ({ children }) => {
             <LinkedinFilled />
           </Link>
         </p>
-        News Portal ©2023 Created by Programming Hero
+        News Portal ©2023 Created by Ridoy Roy
       </Footer>
     </Layout>
   );
