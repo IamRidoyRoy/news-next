@@ -9,6 +9,10 @@ import {
 } from "@ant-design/icons";
 
 const NewsDetailsPage = ({ news }) => {
+
+  if (!news) {
+    return <p>Loading...</p>
+  }
   return (
     <div>
       <Row
@@ -65,7 +69,7 @@ const NewsDetailsPage = ({ news }) => {
             </p>
 
             <p style={{ fontSize: "20px" }}>
-              {news?.description.length > 100
+              {news?.description?.length > 100
                 ? news?.description
                 : news?.description}
             </p>
@@ -85,22 +89,22 @@ NewsDetailsPage.getLayout = function getLayout(page) {
 };
 
 // To get static path 
-export const getStaticPaths = async () => {
-  const res = await fetch('http://localhost:5000/news');
-  const newses = await res.json();
+// export const getStaticPaths = async () => {
+//   const res = await fetch('http://localhost:5000/news');
+//   const newses = await res.json();
 
-  const paths = newses.map((news) => ({
-    params: { newsId: news.id }
-  }))
+//   const paths = newses.map((news) => ({
+//     params: { newsId: news.id }
+//   }))
 
-  return {
-    paths, fallback: false
-  }
-}
+//   return {
+//     paths, fallback: false
+//   }
+// }
 
 // To get static props
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const { params } = context;
   const res = await fetch(`http://localhost:5000/news/${params.newsId}`);
   const data = await res.json();
